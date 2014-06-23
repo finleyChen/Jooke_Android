@@ -1,0 +1,33 @@
+<com.jooketechnologies.style.CheckableLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_schedule_button"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/add_to_schedule_button_height"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/add_schedule_button_background"
+    android:contentDescription="Add">
+
+    <ImageView android:id="@+id/add_schedule_icon"
+        android:layout_width="38dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/add_schedule_button_icon_unchecked"
+        android:contentDescription="@null" />
+
+    <TextView android:id="@+id/add_schedule_text"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold"
+        android:textColor="@color/jooke_blue"
+        android:duplicateParentState="true"
+        android:text="Add Songs" />
+
+</com.jooketechnologies.style.CheckableLinearLayout>

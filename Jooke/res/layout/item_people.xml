@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="2dip" >
+
+    <!-- ListRow Left sied Thumbnail image -->
+
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="10dip"
+        android:padding="2dp" >
+
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="@dimen/img_album_cover_medium"
+            android:layout_height="@dimen/img_album_cover_medium"
+            android:layout_gravity="center"
+            android:src="@drawable/no_image" />
+    </LinearLayout>
+
+    <!-- Title Of Song -->
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Rihanna Love the way lie"
+        android:textColor="@color/jooke_orange"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        android:typeface="sans" />
+
+
+
+
+</RelativeLayout>
+   <include layout="@layout/row_divider" />
+</LinearLayout>

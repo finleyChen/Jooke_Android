@@ -1,0 +1,30 @@
+<resources>
+
+    <color name="jooke_blue">#1fbfbf</color>
+    <color name="jooke_orange">#E05251</color>
+    <color name="inactive_white">#ffffffff</color>
+    <color name="darker_gray">#444444</color>
+    <color name="medium_gray">#888888</color>
+    <color name="light_gray">#BBBBBB</color>
+    <color name="silver">#f7f7f7</color>
+    <color name="logo_text">#C7C7C7</color>
+    <color name="gray_background">#EEEEEE</color>
+    <color name="gray_text">#939393</color>
+    <color name="gray_text_darker">#696969</color>
+    <color name="registration_orange_continue">#E05251</color>
+    <color name="registration_jooke_orange_continue_pressed">#E98585</color>
+    <color name="jooke_gray">#c7c7c7</color>
+    <color name="yellow">#f9a43e</color>
+    <color name="divider">#E6E6FA</color>
+
+    <item name="image_placeholder" type="color">@color/jooke_blue</item>
+
+    <color name="sticky_block_background">#ddffffff</color>
+    <color name="registration_button_disabled">#ff909090</color>
+    <color name="text_dark">#af000000</color>
+    <item type="color" name="bg_touch">@color/lightest_gray</item>
+     <color name="lightest_gray">#0a000000</color>
+    <color name="registration_jooke_blue_continue_pressed">#62d2d2</color>
+    <color name="registration_green_continue">#1fbfbf</color>
+<color name="text_light">#3f000000</color>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_switcher_buttons"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/row_height_small" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/view_switcher_button_left"
+            android:layout_width="0.0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="Top10"
+            android:textColor="@color/darker_gray"
+            android:textSize="@dimen/text_size_large" />
+
+        <include layout="@layout/vertical_divider" />
+
+        <TextView
+            android:id="@+id/view_switcher_button_right"
+            android:layout_width="0.0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="People"
+            android:textColor="@color/darker_gray"
+            android:textSize="@dimen/text_size_large" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/tab_shadow"
+        android:layout_width="fill_parent"
+        android:layout_height="7.0dip"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="-7.0dip"
+        android:background="@drawable/tab_control_shadow"
+        android:visibility="gone" />
+
+</FrameLayout>

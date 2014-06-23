@@ -1,0 +1,34 @@
+<com.jooketechnologies.style.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/start_event_button"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/add_to_schedule_button_height"
+    android:background="@drawable/add_schedule_button_background"
+    android:clickable="true"
+    android:contentDescription="Add"
+    android:focusable="true" >
+
+    <ImageView
+        android:id="@+id/start_event_icon"
+        android:layout_width="38dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/menu_cancel" />
+
+    <TextView
+        android:id="@+id/add_schedule_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:duplicateParentState="true"
+        android:gravity="center"
+        android:text="Start Event"
+        android:textColor="@color/jooke_blue"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold" />
+
+</com.jooketechnologies.style.CheckableLinearLayout>

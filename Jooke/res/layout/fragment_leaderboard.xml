@@ -1,0 +1,143 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/inactive_white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/inactive_white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="11dp"
+            android:gravity="left"
+            android:text="jooke"
+            android:textColor="@color/jooke_orange"
+            android:textSize="28dp" />
+
+        <ImageView
+            android:id="@+id/click_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="30dp"
+            android:background="@color/inactive_white"
+            android:src="@drawable/more" >
+        </ImageView>
+    </RelativeLayout>
+
+    <include layout="@layout/row_divider" />
+
+    <com.jooketechnologies.style.SwipeListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/light_gray"
+        android:dividerHeight="0dp"
+        swipe:swipeBackView="@+id/back"
+        swipe:swipeCloseAllItemsWhenMoveList="true"
+        swipe:swipeFrontView="@+id/front"
+        swipe:swipeMode="left" />
+
+    <include layout="@layout/header_outline" />
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/inactive_white"
+        android:orientation="horizontal"
+        android:padding="0dip" >
+
+        <!-- ListRow Left sied Thumbnail image -->
+
+        <LinearLayout
+            android:id="@+id/header_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dip"
+            android:layout_marginRight="8dip"
+            android:padding="0dip" >
+
+            <ImageView
+                android:id="@+id/list_image"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:src="@drawable/memory_map" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hearder_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/header_photo"
+            android:layout_marginRight="5dip"
+            android:layout_toRightOf="@+id/header_photo"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:padding="3dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOW PLAYING"
+                android:textColor="@color/light_gray"
+                android:textSize="10dip"
+                android:textStyle="normal"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Love The Way You Lie"
+                android:textColor="@color/jooke_orange"
+                android:textSize="12dip"
+                android:textStyle="normal"
+                android:typeface="sans" />
+
+            <!-- Artist Name -->
+
+            <TextView
+                android:id="@+id/header_artist"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Rihanna"
+                android:textColor="@color/jooke_orange"
+                android:textSize="10dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/header_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="18dp"
+            android:padding="3dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="4:13"
+                android:textColor="@color/jooke_orange"
+                android:textSize="12dip"
+                android:typeface="sans" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

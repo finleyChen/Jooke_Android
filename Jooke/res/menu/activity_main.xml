@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:com.example.android.effectivenavigation="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/menu_select_all"
+        android:title="@string/menu_select_all"
+        com.example.android.effectivenavigation:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_deselect_all"
+        android:title="@string/menu_deselect_all"
+        com.example.android.effectivenavigation:showAsAction="always"/>
+
+</menu>

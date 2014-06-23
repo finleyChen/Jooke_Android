@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Jooke</string>
+    <string name="options">Options</string>
+    <string name="view_people">View People</string>
+    <string name="playlist">Playlist</string>
+    <string name="stop_event">Stop Event</string>
+    <string name="create_event_fragment_title">CREATE EVENT</string>
+    <string name="profile_fragment_title">JJ Ma</string>
+    <string name="discover_fragment_title">DISCOVER</string>
+    <string name="scoreboard_events">EVENTS</string>
+    <string name="scoreboard_followers">FOLOWERS</string>
+    <string name="scoreboard_following">FOLLOWING</string>
+    <string name="ui_profile_photo_picker_title">Select profile image</string>
+    <string name="preference_name">jooke_shared_preference</string>
+    <string name="profile_photo_file_name">profile_photo.png</string>
+    <string name="create_tag">CreateEvent</string>
+    <string name="discover_tag">Discover</string>
+    <string name="leaderboard_tag">LeaderBoard</string>
+    <string name="profile_tag">Profile</string>
+    <string name="home_tag">Home</string>
+    <string name="action_search">Search Users</string>
+    <string name="copyright">Copyright &amp; trademark</string>
+    <string name="country">Country</string>
+    <string name="host">HOST</string>
+    <string name="join">JOIN</string>
+    <string name="exit">Exit</string>
+    <string name="add_songs">Add Songs</string>
+    <string name="signup_name_title">Name</string>
+    <string name="language">Language</string>
+    <string name="change_your_password">Change password</string>
+    <string name="action_editprofile">Edit Profile</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Log out</string>
+    <string name="action_leave">Leave Event</string>
+    <string name="message_empty_layout_changes">No jookes available yet.</string>
+    <string name="event_category_label">Event Category</string>
+    <string name="event_name_label">Event Name</string>
+    <string name="scoreboard_photos">PHOTOS</string>
+    <string name="signup_page_password_hint">New Password</string>
+    <string name="login_new_username_hint">Email Address</string>
+    <string name="login_email_hint">Email Address</string>
+    <string name="user_agreement">By creating an account, you agree to the <a href="http://www.jooke.it/terms">Terms of Use</a> and you acknowledge that you have read the <a href="http://www.snapchat.com/privacy">Privacy Policy</a>.</string>
+    <string name="signup_title">Sign Up</string>
+    <string name="use_device_language">"Pinterest uses your device's language."</string>
+
+    <dimen name="add_to_schedule_button_height">48dp</dimen>
+
+    <string name="signup_username_title">Username</string>
+    <string name="signup_email_title">Email</string>
+    <string name="pinterest_url">www.pinterest.com/</string>
+    <string name="profile">Profile</string>
+    <string name="signup_page_title">Sign Up</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_fullname_hint">Full Name</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="registration_continue">CONTINUE</string>
+    <!-- Menu -->
+    <string name="search_hint">Search a user</string>
+    <string name="menu_select_all">Select All</string>
+    <string name="menu_deselect_all">Deselect All</string>
+    <string name="menu_cancel">Cancel</string>
+    <string name="menu_done">Done</string>
+    <string name="signup">SIGN UP</string>
+    <string name="login">LOG IN</string>
+    <string name="login_title">Log In</string>
+    <string name="app_id">474386306039917</string>
+
+    <string-array name="ui_profile_photo_picker_items">
+        <item>Take from camera</item>
+        <item>Select from gallery</item>
+    </string-array>
+
+    <string name="login_using_other_accounts">Or log in using Twitter or Facebook</string>
+    <string name="signup_using_other_accounts">Or sign up using Twitter or Facebook</string>
+
+    <dimen name="row_height_small">48.0dip</dimen>
+
+</resources>

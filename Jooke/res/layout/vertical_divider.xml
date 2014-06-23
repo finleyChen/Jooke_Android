@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vertical_divider"
+    android:layout_width="1.0px"
+    android:layout_height="24.0dip"
+    android:layout_gravity="center_vertical"
+    android:background="@color/jooke_orange" />

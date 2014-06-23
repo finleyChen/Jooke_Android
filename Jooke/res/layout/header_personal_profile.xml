@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_profile_header"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="@color/inactive_white"
+    android:paddingBottom="5dp">
+        
+ 			<TextView
+                android:id="@+id/row_profile_header_textview_fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="JJ MA"
+                android:textColor="@color/jooke_blue"
+                android:textSize="12dp"/>
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/join_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joined"
+                android:textColor="@color/jooke_blue"
+                android:textSize="12dp" />
+                <TextView
+                android:id="@+id/row_profile_header_textview_jointdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="03/07/14"
+                android:textColor="@color/jooke_blue"
+                android:textSize="11dp" />
+                </LinearLayout>
+
+        <ImageView
+            android:id="@+id/default_profile"
+            style="@style/Avatar"
+            android:layout_width="@dimen/img_avatar_large"
+            android:layout_height="@dimen/img_avatar_large"
+			android:layout_gravity="center"
+			android:layout_margin="5dp"
+			android:padding="2dp"
+            android:background="@drawable/spinner_large"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true" >
+
+            <requestFocus />
+        </ImageView>
+        
+  			<TextView
+                android:id="@+id/row_profile_header_button_follow"
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="7dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="+   FOLLOW"
+                android:textColor="@color/jooke_gray"
+                android:background="@drawable/follow_window"
+                android:clickable="true"
+                android:textSize="14dp"/>      
+                </LinearLayout> 
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/inactive_white"
+        android:orientation="horizontal"
+        android:paddingBottom="5dip"
+        android:paddingTop="0dip" >
+
+        <FrameLayout
+            android:id="@+id/row_profile_header_container_events"
+            style="@style/ProfileScoreboardButton"
+            android:layout_marginRight="5dp" >
+
+            <TextView
+                style="@style/IgProfileScoreboardLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scoreboard_events" />
+
+            <TextView
+                android:id="@+id/row_profile_header_textview_events_count"
+                style="@style/IgProfileScoreboardCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33" />
+        </FrameLayout>
+
+        <include layout="@layout/vertical_divider" />
+
+        <FrameLayout
+            android:id="@+id/row_profile_header_container_followers"
+            style="@style/ProfileScoreboardButton"
+            android:layout_marginRight="5dp" >
+
+            <TextView
+                style="@style/IgProfileScoreboardLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scoreboard_followers" />
+
+            <TextView
+                android:id="@+id/row_profile_header_textview_followers_count"
+                style="@style/IgProfileScoreboardCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="109" />
+        </FrameLayout>
+
+        <include layout="@layout/vertical_divider" />
+
+        <FrameLayout
+            android:id="@+id/row_profile_header_container_following"
+            style="@style/ProfileScoreboardButton"
+            android:layout_marginRight="5dp" >
+
+            <TextView
+                style="@style/IgProfileScoreboardLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scoreboard_following" />
+
+            <TextView
+                android:id="@+id/row_profile_header_textview_following_count"
+                style="@style/IgProfileScoreboardCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45" />
+        </FrameLayout>
+        
+    </LinearLayout>
+
+    <include layout="@layout/row_divider" />
+
+</LinearLayout>

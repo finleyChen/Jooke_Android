@@ -1,0 +1,262 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+
+    <style name="MyListBackContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:background">@color/inactive_white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="section_item_divider">
+        <item name="android:background">@color/light_gray</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0px</item>
+    </style>
+
+    <style name="profile_about_section_title">
+        <item name="android:textSize">@dimen/text_regular_secondary_size</item>
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">12.0dip</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:layout_marginBottom">8.0dip</item>
+    </style>
+
+    <style name="RegistrationFinePrint">
+        <item name="android:textSize">@dimen/text_size_fine_print</item>
+    </style>
+
+    <style name="section_item_meta" parent="@style/section_item_label">
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:paddingRight">@dimen/global_padding</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="section_item">
+        <item name="android:textSize">@dimen/text_regular_primary_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/touch_clear_bg</item>
+        <item name="android:padding">@dimen/global_gray_padding</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/setting_section_height</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="section_item_checkbox" parent="@style/section_item">
+        <item name="android:padding">@dimen/text_large_primary_size</item>
+        <item name="android:checkMark">@drawable/checkbox_selector</item>
+    </style>
+
+    <style name="section_item_label" parent="@style/section_item">
+        <item name="android:background">@null</item>
+        <item name="android:padding">@dimen/text_large_primary_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!-- Actionbar Title. -->
+    <style name="Theme_JookeBlue" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/JookeBlueActionBar</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:actionBarTabStyle">@style/JookeBlueActionBarTabStyle</item>
+        <item name="actionBarTabStyle">@style/JookeBlueActionBarTabStyle</item>
+        <item name="android:actionBarTabBarStyle">@style/JookeBlueActionBarTabBarStyle</item>
+    </style>
+
+    <style name="editext_graybg" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/edit_text_box</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:textSize">@dimen/txt_16sp</item>
+    </style>
+
+    <style name="btn_signup_large" parent="@style/btn">
+        <item name="android:background">@drawable/red_btn</item>
+        <item name="android:textColor">@color/inactive_white</item>
+        <item name="android:textSize">@dimen/txt_18sp</item>
+    </style>
+
+    <style name="btn_login_large" parent="@style/btn">
+        <item name="android:background">@drawable/blue_btn</item>
+        <item name="android:textColor">@color/inactive_white</item>
+        <item name="android:textSize">@dimen/txt_18sp</item>
+    </style>
+    <style name="btn_host" parent="@style/btn">
+        <item name="android:background">@drawable/btn_host</item>
+        <item name="android:textColor">@color/jooke_orange</item>
+        <item name="android:textSize">@dimen/txt_18sp</item>
+    </style>
+    <style name="btn_join" parent="@style/btn">
+        <item name="android:background">@drawable/btn_join</item>
+        <item name="android:textColor">@color/jooke_orange</item>
+        <item name="android:textSize">@dimen/txt_18sp</item>
+    </style>
+
+    <style name="RegistrationContinueButton">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/snapchat_button_registration_green</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/registration_continue_button_height</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="SignupContinueButton">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/snapchat_button_registration_orange</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/registration_continue_button_height</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="Theme_JookeOrange" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/JookeOrangeActionBar</item>
+        <item name="android:actionBarTabStyle">@style/JookeBlueActionBarTabStyle</item>
+        <item name="actionBarTabStyle">@style/JookeBlueActionBarTabStyle</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:actionBarTabBarStyle">@style/JookeBlueActionBarTabBarStyle</item>
+    </style>
+
+    <style name="JookeOrangeActionBar" parent="android:Widget.Holo.ActionBar">
+        <item name="android:displayOptions">showHome|useLogo</item>
+        <item name="android:background">@color/jooke_orange</item>
+        <item name="android:titleTextStyle">@style/DarkActionBarTitleTextStyle</item>
+    </style>
+
+    <style name="btn" parent="android:Widget.Holo.Light.Button">
+        <item name="android:minHeight">1dp</item>
+        <item name="android:minWidth">1dp</item>
+    </style>
+
+    <style name="JookeBlueActionBar" parent="android:Widget.Holo.ActionBar">
+        <item name="android:displayOptions">showHome|useLogo</item>
+        <item name="android:background">@color/jooke_blue</item>
+        <item name="android:titleTextStyle">@style/DarkActionBarTitleTextStyle</item>
+    </style>
+
+    <style name="JookeBlueActionBarTabStyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_bar_background</item>
+    </style>
+
+    <style name="JookeBlueActionBarTabBarStyle" parent="@android:style/Widget.Holo.ActionBar.TabBar">
+        <item name="android:background">@color/inactive_white</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
+
+    <style name="DarkActionBarTitleTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <!-- Profile Header theme. -->
+    <style name="ProfileScoreboardButton">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">0.0px</item>
+        <item name="android:layout_height">44.0dip</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <style name="Avatar">
+        <item name="placeholder">@color/image_placeholder</item>
+        <item name="strokeColor">@color/jooke_blue</item>
+        <item name="strokeWidth">@dimen/circular_avatar_stroke_width</item>
+    </style>
+
+    <style name="IgProfileScoreboardLabel">
+        <item name="android:textColor">@color/medium_gray</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_gravity">top|center</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="IgProfileScoreboardCount">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/jooke_blue</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_gravity">bottom|center</item>
+    </style>
+
+    <!-- Swipe List theme. -->
+    <style name="SwipeListBackContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/silver</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="SwipeListFrontContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/inactive_white</item>
+    </style>
+
+    <style name="CreateEventQuestion">
+        <item name="android:background">@drawable/create_event_question_background</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:paddingTop">@dimen/element_spacing_normal</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="PublicProfileTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/JookeBlueActionBar</item>
+    </style>
+
+    <style name="MusicSelectorTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/JookeBlueActionBar</item>
+        <item name="multiChoiceAdapterStyle">@style/MultiChoiceAdapter</item>
+    </style>
+
+    <style name="MultiChoiceAdapter">
+        <item name="itemClickInActionMode">selectItem</item>
+    </style>
+
+    <style name="ErrorRedX">
+        <item name="android:background">@drawable/red_x</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_width">23.0dip</item>
+        <item name="android:layout_height">23.0dip</item>
+        <item name="android:layout_marginRight">@dimen/default_gap</item>
+        <item name="android:layout_marginBottom">@dimen/default_gap</item>
+    </style>
+
+    <style name="Holo" />
+
+    <style name="Holo.EditText" parent="@style/Holo">
+        <item name="android:textAppearance">?android:textAppearanceMediumInverse</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/edit_text_holo_dark</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="Holo.AutoCompleteTextView" parent="@style/Holo.EditText">
+        <item name="android:completionHintView">@layout/simple_dropdown_hint</item>
+        <item name="android:completionThreshold">2</item>
+        <item name="android:dropDownSelector">@drawable/list_selector_holo_dark</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_holo_dark</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="dropDownHorizontalOffset">0.0dip</item>
+        <item name="dropDownVerticalOffset">-6.0dip</item>
+    </style>
+
+</resources>

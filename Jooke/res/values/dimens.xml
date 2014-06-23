@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="img_avatar_large">80.0dip</dimen>
+    <dimen name="img_album_cover_medium">50.0dp</dimen>
+    <dimen name="img_feed_img_medium">44.0dp</dimen>
+    <dimen name="feed_item_height">70.0dip</dimen>
+    <dimen name="img_action_icon_size">20.0dip</dimen>
+    <dimen name="discover_item_height">70dip</dimen>
+    <dimen name="circular_avatar_stroke_width">1dp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="element_spacing_normal">8dp</dimen>
+    <dimen name="setting_section_height">60.0dip</dimen>
+    <dimen name="text_regular_secondary_size">11.0dip</dimen>
+
+    <item name="user_about_padding" type="dimen">@dimen/global_padding</item>
+
+    <dimen name="global_padding">10.0dip</dimen>
+
+    <item name="global_padding_small" type="dimen">@dimen/global_padding</item>
+
+    <dimen name="global_gray_padding">16.0dip</dimen>
+    <dimen name="text_regular_primary_size">14.0dip</dimen>
+    <dimen name="text_large_primary_size">16.0dip</dimen>
+    <dimen name="pad_5dp">5dp</dimen>
+    <dimen name="pad_10dp">10dp</dimen>
+    <dimen name="pad_15dp">15dp</dimen>
+    <dimen name="pad_20dp">20dp</dimen>
+    <dimen name="pad_30dp">30dp</dimen>
+    <dimen name="pad_chat_item">45dp</dimen>
+    <dimen name="pad_chat_item1">10dp</dimen>
+    <dimen name="txt_7sp">7sp</dimen>
+    <dimen name="txt_12sp">12sp</dimen>
+    <dimen name="txt_13sp">13sp</dimen>
+    <dimen name="txt_14sp">14sp</dimen>
+    <dimen name="txt_15sp">15sp</dimen>
+    <dimen name="txt_16sp">16sp</dimen>
+    <dimen name="txt_18sp">18sp</dimen>
+    <dimen name="txt_20sp">20sp</dimen>
+    <dimen name="default_gap_2x">16.0dip</dimen>
+    <dimen name="registration_continue_button_height">56.0dip</dimen>
+    <dimen name="registration_title_size">32.0sp</dimen>
+    <dimen name="registration_textview_error_message_text_size">12.0sp</dimen>
+    <dimen name="default_gap_5x">40.0dip</dimen>
+    <dimen name="ui_element_unit">40.0dip</dimen>
+    <dimen name="default_gap">8.0dip</dimen>
+    <dimen name="default_gap_3x">24.0dip</dimen>
+    <dimen name="icon_size_smaller">24.0dip</dimen>
+    <dimen name="text_size_fine_print">12.0sp</dimen>
+    <dimen name="quickplay_offset">50dp</dimen>
+
+</resources>

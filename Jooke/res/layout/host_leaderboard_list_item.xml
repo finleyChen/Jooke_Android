@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+   <LinearLayout
+        android:id="@+id/back"
+        style="@style/MyListBackContent"
+        android:tag="back" >
+
+        <Button
+            android:id="@+id/swipe_button1"
+            android:layout_width="70dp"
+            android:layout_height="fill_parent"
+            android:background="@color/jooke_orange"
+            android:text="skip"
+            android:textColor="@color/inactive_white"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/front"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/list_selector"
+        android:orientation="horizontal"
+        android:padding="0dip"
+        android:tag="front" >
+
+        <TextView
+            android:id="@+id/rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="1"
+            android:textColor="@color/jooke_orange"
+            android:textSize="10dip"
+            android:textStyle="bold" />
+
+        <!-- ListRow Left sied Thumbnail image -->
+
+        <LinearLayout
+            android:id="@+id/thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dip"
+            android:layout_marginRight="8dip"
+            android:padding="3dip" >
+
+            <ImageView
+                android:id="@+id/list_image"
+                android:layout_width="@dimen/img_album_cover_medium"
+                android:layout_height="@dimen/img_album_cover_medium"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/rihanna" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Song_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:padding="0dip" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/medium_gray"
+                android:textSize="15dip"
+                android:textStyle="normal"
+                android:typeface="sans" />
+
+            <!-- Artist Name -->
+
+            <TextView
+                android:id="@+id/artist"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Just gona stand there and ..."
+                android:textColor="@color/light_gray"
+                android:textSize="12dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="0dp"
+                android:text="87 jookes"
+                android:textColor="@color/jooke_orange"
+                android:textSize="12dip"
+                android:typeface="sans" />
+        </LinearLayout>
+
+        <include layout="@layout/row_divider" />
+    </RelativeLayout>
+
+</FrameLayout>

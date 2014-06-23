@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/inactive_white" >
+
+    <include layout="@layout/header_personal_profile" />
+         <include layout="@layout/heavy_row_divider" />
+     <include layout="@layout/row_divider" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="0dp" />
+
+</LinearLayout>

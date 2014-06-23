@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hearder_info"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/btn_join"
+    android:orientation="horizontal"
+    android:padding="3dip" >
+    
+	<TextView
+        android:id="@+id/select"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="12dp"
+        android:text="SELECTED "
+        android:textColor="@color/jooke_orange"
+        android:textSize="18dp"
+        android:gravity="left|center"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/number_of_songs"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="0"
+        android:textColor="@color/jooke_orange"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/select"
+        android:textStyle="normal" />
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal">  
+    <include layout="@layout/vertical_divider"/>
+    </LinearLayout>
+    
+	<TextView
+        android:id="@+id/done"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="12dp"
+        android:text="DONE"
+        android:textColor="@color/jooke_orange"
+        android:textSize="18dp"
+        android:gravity="right|center"
+        android:textStyle="normal" />
+    
+
+</RelativeLayout>
