@@ -22,8 +22,8 @@ public class Constants {
 	static public final int SIGNUP_TYPE_TWITTER = 2;
 	static public final int SIGNUP_TYPE_NORMAL = 0;
 
-	public static final String ACCESS_KEY_ID = "AKIAISZYPIO7GAWYEGPQ";
-	public static final String SECRET_KEY = "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";
+	public static final String ACCESS_KEY_ID = "CHANGETHIS";
+	public static final String SECRET_KEY = "CHANGETHIS";
 
 	static public final String KEY_EVENT_STATUS = "eventstatus";
 	static public final String KEY_EVENT_CATEGORY = "eventcategory";
