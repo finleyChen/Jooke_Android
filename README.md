@@ -1,3 +1,6 @@
+1. Update your appcompat7 to the latest version. 
+2. Add library dependencies as follows. 
+
 Library Dependencies: 
 #1. ../cwac-loaderex-master
 #2. ../android-simple-facebook-master/Simple Facebook
