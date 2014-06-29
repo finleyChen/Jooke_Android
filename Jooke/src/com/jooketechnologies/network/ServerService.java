@@ -49,6 +49,7 @@ public class ServerService extends Service {
 		updatesReceiver2Broadcast = new BroadcastReceiver() {
 			@Override
 			public void onReceive(Context context, Intent intent) {
+				Log.e("onReceive","onReceive");
 				String updateAction = intent.getAction();
 				
 				JSONObject updateJsonObject = new JSONObject();
