@@ -114,8 +114,10 @@ public class MainActivity extends CustomActivity implements LocationListener {
 		mPager.setOnPageChangeListener(new DetailOnPageChangeListener());
 
 		hostBtn = (Button) findViewById(R.id.btnHost);
-		hostBtn.setTypeface(null, Typeface.BOLD);
+		hostBtn.setTypeface(bold);
 		joinBtn = (Button) findViewById(R.id.btnJoin);
+		joinBtn.setTypeface(normal);
+
 
 	}
 
