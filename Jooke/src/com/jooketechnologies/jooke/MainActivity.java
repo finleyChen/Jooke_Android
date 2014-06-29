@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jooketechnologies.adapter.MainPageAdapter;
+import com.jooketechnologies.style.Typefaces;
 
 public class MainActivity extends CustomActivity implements LocationListener {
 	MainPageAdapter mAdapter;
