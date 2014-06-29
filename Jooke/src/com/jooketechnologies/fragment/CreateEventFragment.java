@@ -60,6 +60,8 @@ import com.jooketechnologies.user.MySelf;
 		public boolean isAllowAddSongs=true;
 		public boolean isAllowVoting=true;
 		
+		private View root;
+		
 		public static final int SONG_SELECT_RESULT = 1000;
 
 		@Override
@@ -86,6 +88,8 @@ import com.jooketechnologies.user.MySelf;
 			
 			final View rootView = inflater.inflate(
 					R.layout.fragment_createevent, container, false);
+			root = (View) rootView.findViewById(R.id.create_event_root);
+			FontHelper.applyFont(getActivity(), root, "fonts/gillsans_light.ttf");
 			
 			mEventNameEditText = (EditText) rootView
 					.findViewById(R.id.event_name_text_field);

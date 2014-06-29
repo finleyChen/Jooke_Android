@@ -23,12 +23,14 @@ import com.jooketechnologies.jooke.R;
 import com.jooketechnologies.jooke.SharedPreferenceUtils;
 import com.jooketechnologies.network.ServerUtilities;
 import com.jooketechnologies.style.BaseSwipeListViewListener;
+import com.jooketechnologies.style.FontHelper;
 import com.jooketechnologies.style.SwipeListView;
 
 public class DiscoverFragment extends ListFragment {
 
 	ArrayList<HashMap<String, String>> feedsList;
 	ListView list;
+	View root;
 	DiscoverAdapter adapter;
 	SwipeListView swipelistview;
 	Context mContext;
@@ -122,6 +124,9 @@ public class DiscoverFragment extends ListFragment {
 		
 		final View rootView = inflater.inflate(R.layout.fragment_discover,
 				container, false);
+		
+		root = (View) rootView.findViewById(R.id.discover_root);
+		FontHelper.applyFont(getActivity(), root, "fonts/gillsans_light.ttf");
 		
 		swipelistview = (SwipeListView) rootView.findViewById(android.R.id.list);
 		swipelistview.setSwipeListViewListener(new BaseSwipeListViewListener() {

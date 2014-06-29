@@ -25,6 +25,8 @@ public class MainActivity extends CustomActivity implements LocationListener {
 	public Button joinBtn;
 	public Button hostBtn;
 	public JookeApplication jookeApplication;
+	public Typeface normal;
+	public Typeface bold;
 
 	public class DetailOnPageChangeListener extends
 			ViewPager.SimpleOnPageChangeListener {
@@ -36,13 +38,13 @@ public class MainActivity extends CustomActivity implements LocationListener {
 			switch (currentPage) {
 			case 0:
 				// set bold
-				hostBtn.setTypeface(null, Typeface.BOLD);
-				joinBtn.setTypeface(null, Typeface.NORMAL);
+				hostBtn.setTypeface(bold);
+				joinBtn.setTypeface(normal);
 				break;
 			case 1:
 				// set bold
-				joinBtn.setTypeface(null, Typeface.BOLD);
-				hostBtn.setTypeface(null, Typeface.NORMAL);
+				joinBtn.setTypeface(bold);
+				hostBtn.setTypeface(normal);
 				break;
 			}
 		}
@@ -70,6 +72,9 @@ public class MainActivity extends CustomActivity implements LocationListener {
 		setContentView(R.layout.activity_outevent_main);
 
 		jookeApplication = (JookeApplication) getApplication();
+		
+		normal= (Typeface) Typefaces.get(this, "fonts/Roboto-Thin.ttf");
+		bold= (Typeface) Typefaces.get(this, "fonts/Roboto-Medium.ttf");
 
 		LocationManager locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,13 +54,18 @@ public class DiscoverAdapter extends BaseAdapter {
 		final NewsHolder holder;
 		if (vi == null) {
 			vi = inflater.inflate(R.layout.discover_list_item, null);
+			Typeface defaul=Typeface.createFromAsset(activity.getAssets(),
+                    "fonts/gillsans_light.ttf");
 
 			holder = new NewsHolder();
 
 			holder.eventname = (TextView) vi.findViewById(R.id.event); // title
+			holder.eventname.setTypeface(defaul);
 			holder.hostname = (TextView) vi.findViewById(R.id.host); // artist
+			holder.hostname.setTypeface(defaul);
 																		// name
 			holder.event_info = (Button) vi.findViewById(R.id.event_info_btn);
+			holder.event_info.setTypeface(defaul);
 			holder.event_info.setOnClickListener(new View.OnClickListener() {
 	            @Override
 	            public void onClick(View v) {
@@ -67,6 +73,7 @@ public class DiscoverAdapter extends BaseAdapter {
 	            }
 	        });
 			holder.join_event = (Button) vi.findViewById(R.id.join_event_info);
+			holder.join_event.setTypeface(defaul);
 			holder.join_event.setOnClickListener(new View.OnClickListener() {
 	            @Override
 	            public void onClick(View v) {

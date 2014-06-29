@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/discover_root"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/inactive_white"
@@ -13,18 +14,18 @@
         android:layout_marginTop="0dp"
         android:background="@color/inactive_white"
         android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="11dp"
-            android:gravity="left"
-            android:text="jooke"
-            android:textColor="@color/jooke_orange"
-            android:textSize="28dp" />
+    <TextView 
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="9dp"
+        android:text="NEARBY EVENTS"
+        android:textStyle="normal"
+        android:background="@color/inactive_white"
+        android:textSize="20dp"
+        android:textColor="@color/jooke_orange"/>
 
         <ImageButton
             android:layout_width="wrap_content"

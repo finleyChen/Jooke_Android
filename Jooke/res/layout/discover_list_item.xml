@@ -1,97 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/discover_item_root"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
+<LinearLayout 
+            android:id="@+id/back"
+            android:tag="back"
+    		style="@style/MyListBackContent"
+            >
+
+        <Button
+                android:layout_width="70dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/event_info_btn"
+                android:background="@drawable/join_button"
+                android:text="info"
+                android:textSize="20dp"
+                android:textStyle="normal"
+                android:textColor="@color/jooke_orange"/>
+
+        <Button
+                android:layout_width="70dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/join_event_info"
+                android:background="@drawable/join_button"
+                android:text="join"
+                android:textSize="20dp"
+                android:textStyle="normal"
+                android:textColor="@color/jooke_orange"/>
+</LinearLayout>
+
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/inactive_white"
+    android:id="@+id/front"
+    android:tag="front"
+    android:orientation="horizontal"
+    android:layout_marginLeft="0dp"
+    android:padding="0dip" >
+        
     <LinearLayout
-        android:id="@+id/back"
-        style="@style/MyListBackContent"
-        android:tag="back" >
+        android:id="@+id/thumbnail"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="3dip"		
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+	    android:layout_marginRight="8dip"
+	    android:layout_marginLeft="6dp">
 
-        <Button
-            android:id="@+id/event_info_btn"
-            android:layout_width="70dp"
-            android:layout_height="fill_parent"
-            android:background="@drawable/join_button"
-            android:text="info"
-            android:textColor="@color/jooke_orange"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-
-        <Button
-            android:id="@+id/join_event_info"
-            android:layout_width="70dp"
-            android:layout_height="fill_parent"
-            android:background="@drawable/join_button"
-            android:text="join"
-            android:textColor="@color/jooke_orange"
-            android:textSize="20dp"
-            android:textStyle="normal" />
+        <ImageView
+            android:id="@+id/host_image"
+		    android:layout_width="@dimen/img_album_cover_medium"
+	        android:layout_height="@dimen/img_album_cover_medium"
+	        android:layout_marginTop="5dp"
+	        android:layout_marginLeft="0dp"
+	        android:src="@drawable/rihanna"/>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/front"
+
+	
+	<LinearLayout 
+    	android:id="@+id/Song_name" 
+		android:layout_width="fill_parent"
+		android:layout_height="50dp"
+		android:padding="0dip"	
+		android:layout_toRightOf="@+id/thumbnail"
+	    android:layout_marginRight="0dip"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginBottom="5dp"
+	    android:layout_marginLeft="12dp"
+	    android:orientation="vertical">
+    <TextView
+        android:id="@+id/event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/jooke_orange"
+        android:typeface="sans" 
+        android:textSize="20dp"
+        android:textStyle="normal"/>
+
+	<!-- Artist Name -->
+    <TextView
+        android:id="@+id/host"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:background="@color/inactive_white"
-        android:orientation="horizontal"
-        android:padding="0dip"
-        android:tag="front" >
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/jooke_gray"
+        android:textSize="18dp"
+        android:text="Just gona stand there and ..." />
+</LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="8dip"
-            android:padding="3dip" >
+   
+</RelativeLayout>
 
-            <ImageView
-                android:id="@+id/host_image"
-                android:layout_width="@dimen/img_album_cover_medium"
-                android:layout_height="@dimen/img_album_cover_medium"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/rihanna" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/Song_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="0dip"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/thumbnail"
-            android:orientation="vertical"
-            android:padding="0dip" >
-
-            <TextView
-                android:id="@+id/event"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/jooke_orange"
-                android:textSize="18dp"
-                android:textStyle="normal"
-                android:typeface="sans" />
-
-            <!-- Artist Name -->
-
-            <TextView
-                android:id="@+id/host"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="Just gona stand there and ..."
-                android:textColor="@color/jooke_gray"
-                android:textSize="14dp" />
-        </LinearLayout>
-
-        <include layout="@layout/heavy_row_divider" />
-    </RelativeLayout>
 
 </FrameLayout>
