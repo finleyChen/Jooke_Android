@@ -3,12 +3,10 @@ package com.jooketechnologies.user;
 import java.io.IOException;
 import java.util.Collections;
 
-import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 
 import com.jooketechnologies.event.Event;
-import com.jooketechnologies.jooke.Constants;
 import com.jooketechnologies.music.Song;
 
 public class MySelf extends User {

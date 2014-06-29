@@ -1,5 +1,7 @@
 package com.jooketechnologies.jooke;
 
+import java.util.ArrayList;
+
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -25,6 +27,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jooketechnologies.adapter.DiscoverAdapter;
+import com.jooketechnologies.event.Event;
 import com.jooketechnologies.network.ServerUtilities;
 import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
@@ -329,9 +333,9 @@ public class SignupActivity extends Activity {
 			
 		}
 	}
-	public class signupAsyncTask extends AsyncTask<Void, Void, Void> {
+	public class signupAsyncTask extends AsyncTask<Void, Void, String> {
 
-		protected Void doInBackground(Void... none) {
+		protected String doInBackground(Void... none) {
 			String email;
 			String password;
 			if(emailField.length() == 0){
@@ -348,13 +352,29 @@ public class SignupActivity extends Activity {
 			}
 			String userid = ServerUtilities.signUp(email, 0, fullname.getText()
 					.toString(), null, password, null);
+			
 			if(userid!=null){
-				SharedPreferenceUtils.storeJookeUserId(mContext, userid);
+				if(!userid.equals("-1")){
+					SharedPreferenceUtils.storeJookeUserId(mContext, userid);
+					return userid;
+				}
+				else{
+					return null;
+				}
 			}
 			else{
 				Log.e("shuold not happen","should not happen");
 			}
 			return null;
+		}
+		protected void onPostExecute(String userId){
+			if(userId != null){
+				Intent mainActivityIntent = new Intent(mContext, MainActivity.class);
+				startActivity(mainActivityIntent);
+			}
+			else{
+				Toast.makeText(getApplicationContext(),"Signup failed.", Toast.LENGTH_LONG).show();
+			}
 		}
 	}
 }

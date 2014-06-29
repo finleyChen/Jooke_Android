@@ -81,7 +81,9 @@ import com.jooketechnologies.user.MySelf;
 			
 			mContext = getActivity();
 			jookeApplication = (JookeApplication) getActivity().getApplication();
-			mMe = jookeApplication.mMe;
+			mMe = new MySelf(SharedPreferenceUtils.getStoredJookeUserId(mContext),Utils.getIPAddress(true));
+			jookeApplication.mMe = mMe;
+			
 			final View rootView = inflater.inflate(
 					R.layout.fragment_createevent, container, false);
 			

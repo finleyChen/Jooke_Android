@@ -77,7 +77,8 @@ public class JookeApplication extends Application {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-
+					Log.e("onOpen",SharedPreferenceUtils
+							.getStoredJookeUserId(context)+","+Utils.getIPAddress(true));
 					mConnection.sendTextMessage(joinJsonObject.toString());
 				}
 

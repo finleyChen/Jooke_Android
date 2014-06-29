@@ -35,7 +35,7 @@ public class Constants {
 
 	static public final String KEY_PROFILE_NAME = "profilename";
 
-	public static final String CHAT_SERVER_URL = "http://jooke-env.elasticbeanstalk.com";
+	public static final String CHAT_SERVER_URL = "http://jookee-env.elasticbeanstalk.com";
 	//public static final String CHAT_SERVER_URL = "http://10.31.54.52:8080/RichServer";
 	public static final String CHAT_SERVER_GET_FRIEND_URL = CHAT_SERVER_URL
 			+ "/getFriendsLists.do";

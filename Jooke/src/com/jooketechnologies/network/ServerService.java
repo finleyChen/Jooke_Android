@@ -65,6 +65,7 @@ public class ServerService extends Service {
 						addPeopleJsonObject.put(Constants.KEY_TWITTER_LINK,intent.getStringExtra(Constants.KEY_TWITTER_LINK));
 						
 						updateJsonObject.put(Constants.KEY_ADD_PEOPLE, addPeopleJsonObject);
+						Log.e("broadcast sent", "add people");
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

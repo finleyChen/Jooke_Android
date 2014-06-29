@@ -113,12 +113,26 @@ public class ServerUtilities {
 		JSONObject jsonObject = post(serverUrl, Constants.GET_PROFILE_ACTION_CODE, params);
 		try {
 			String fullname = jsonObject.getString(Constants.KEY_FULL_NAME);
-			String faceboookLink = jsonObject.getString(Constants.KEY_FACEBOOK_LINK);
+			String facebookLink = jsonObject.getString(Constants.KEY_FACEBOOK_LINK);
 			String instagramLink = jsonObject.getString(Constants.KEY_INSTAGRAM_LINK);
 			String twitterLink = jsonObject.getString(Constants.KEY_TWITTER_LINK);
 			String userProfileImgUrl = jsonObject.getString(Constants.KEY_PROFILE_IMG);
+			if (instagramLink.equals("null") )
+			{
+				instagramLink = null;
+			}
+			if (twitterLink.equals("null")  ){
+				twitterLink = null;
+			}
+			
+			if (userProfileImgUrl.equals("null") ){
+				userProfileImgUrl = null;
+			}
+			if (facebookLink.equals("null") ){
+				facebookLink = null;
+			}
 			User newUser = new User(user_ip, user_id,fullname,
-					userProfileImgUrl,faceboookLink, twitterLink, instagramLink);
+					userProfileImgUrl,facebookLink, twitterLink, instagramLink);
 			return newUser;
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -208,7 +222,6 @@ public class ServerUtilities {
 			String user_id;
 			try {
 				Log.e("success", jsonObject.getString("success"));
-//				Log.e("message", jsonObject.getString("message"));
 				Log.e("user_id", jsonObject.getString("userid"));
 				user_id = jsonObject.getString("userid");
 				return user_id;
@@ -296,12 +309,13 @@ public class ServerUtilities {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("host_id", host_id);
 		params.put("event_id", event_id);
-		Log.e("host_id",host_id);
+		
 		Log.e("event_id",event_id);
 		JSONObject jsonObject = post(serverUrl, Constants.GET_HOST_IP_ACTION_CODE, params);
 		
 		try {
 			String host_ip = jsonObject.getString(Constants.KEY_HOST_IP);
+			Log.e("host_id",host_id);
 			return host_ip;
 			
 		} catch (JSONException e) {

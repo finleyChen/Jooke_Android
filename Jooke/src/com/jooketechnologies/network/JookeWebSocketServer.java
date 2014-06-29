@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.jooketechnologies.jooke.Constants;
 import com.jooketechnologies.jooke.JookeApplication;
@@ -72,12 +73,15 @@ public class JookeWebSocketServer extends WebSocketServer {
 
 			// JOIN
 			if (incomingJsonObject.getJSONObject(Constants.KEY_JOIN) != null) {
+			
 				JSONObject joinJsonObject = incomingJsonObject
 						.getJSONObject(Constants.KEY_JOIN);
 
 				String userId = joinJsonObject.getString(Constants.KEY_USER_ID);
 				String userIp = joinJsonObject.getString(Constants.KEY_USER_IP);
-
+				Log.e("joined userid",userId);
+				Log.e("joined userIp",userIp);
+				
 				User newUser = ServerUtilities.getProfile(userId, userIp);
 				// ADD to the user list and broadcast to everyone.
 				if (jookeApplication.mMe.addPublic(newUser)) {
