@@ -31,6 +31,7 @@ import com.jooketechnologies.jooke.R;
 import com.jooketechnologies.jooke.SharedPreferenceUtils;
 import com.jooketechnologies.jooke.Utils;
 import com.jooketechnologies.network.ServerUtilities;
+import com.jooketechnologies.style.FontHelper;
 import com.jooketechnologies.user.MySelf;
 /**
 	 * A fragment that launches other parts of the demo application.
