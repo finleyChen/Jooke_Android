@@ -17,7 +17,6 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.jooketechnologies.jooke.Constants;
 import com.jooketechnologies.jooke.JookeApplication;
@@ -28,7 +27,7 @@ public class JookeWebSocketServer extends WebSocketServer {
 	private static int counter = 0;
 	Context context;
 	private JookeApplication jookeApplication;
-
+	private JookeWebSocketServer wsServer;
 	public JookeWebSocketServer(int paramInt, Draft paramDraft,
 			Context paramContext, JookeApplication jookeApplication) {
 
@@ -36,6 +35,7 @@ public class JookeWebSocketServer extends WebSocketServer {
 				.singletonList(paramDraft));
 		this.jookeApplication = jookeApplication;
 		this.context = paramContext;
+		wsServer = this;
 	}
 
 	public JookeWebSocketServer(InetSocketAddress paramInetSocketAddress,
@@ -70,7 +70,7 @@ public class JookeWebSocketServer extends WebSocketServer {
 		Log.e("onMessage", "onMessage" + incomingMessage);
 		try {
 			JSONObject incomingJsonObject = new JSONObject(incomingMessage);
-
+			JSONObject updateJsonObject = new JSONObject();
 			// JOIN
 			if (incomingJsonObject.getJSONObject(Constants.KEY_JOIN) != null) {
 			
@@ -100,6 +100,23 @@ public class JookeWebSocketServer extends WebSocketServer {
 					addUserIntent.putExtra(Constants.KEY_FACEBOOK_LINK,
 							newUser.facebookUrl);
 					context.sendBroadcast(addUserIntent);
+					
+					JSONObject addPeopleJsonObject = new JSONObject();
+					try {
+						addPeopleJsonObject.put(Constants.KEY_USER_ID, userId);
+						addPeopleJsonObject.put(Constants.KEY_FULL_NAME, newUser.userName);
+						addPeopleJsonObject.put(Constants.KEY_PROFILE_IMG, newUser.userProfileImgUrl);
+						addPeopleJsonObject.put(Constants.KEY_USER_ID, userId);
+						addPeopleJsonObject.put(Constants.KEY_INSTAGRAM_LINK, newUser.instagramUrl);
+						addPeopleJsonObject.put(Constants.KEY_FACEBOOK_LINK,newUser.facebookUrl);
+						addPeopleJsonObject.put(Constants.KEY_TWITTER_LINK,newUser.twitterUrl);
+						
+						updateJsonObject.put(Constants.KEY_ADD_PEOPLE, addPeopleJsonObject);
+						Log.e("broadcast sent", "add people");
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 			// LEAVE
