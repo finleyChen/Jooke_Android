@@ -11,10 +11,10 @@ public final class R {
 		public static final int icon = 0x7f0200de;
 	}
 	public static final class layout {
-		public static final int main = 0x7f03004d;
+		public static final int main = 0x7f03004c;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f060001;
-		public static final int hello = 0x7f060000;
+		public static final int app_name = 0x7f09001a;
+		public static final int hello = 0x7f09001b;
 	}
 }

@@ -41,6 +41,7 @@ import com.jooketechnologies.adapter.PlayListArtistAdapter.Section;
 import com.jooketechnologies.database.ArtistComparator;
 import com.jooketechnologies.music.Artist;
 import com.jooketechnologies.music.Song;
+import com.jooketechnologies.style.FontHelper;
 
 public class CreatePlaylistActivity extends ListActivity implements
 		OnItemClickListener {
@@ -255,7 +256,7 @@ public class CreatePlaylistActivity extends ListActivity implements
 //		setTheme(R.style.Theme_JookeBlue);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_playlist);
-		
+		FontHelper.applyFont(this, findViewById(R.id.activity_create_playlist_root), "fonts/gillsans_light.ttf");
 		Log.e("onCreate", "onCreate");
 		mGestureDetector = new GestureDetector(this, new SideIndexGestureListener());
 		adapter = new PlayListArtistAdapter(this);

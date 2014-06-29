@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.view.ActionMode;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,14 +32,12 @@ public class MyArrayAdapter extends MultiChoiceArrayAdapter<String> {
 		mContext = context;
 	}
 
-	@Override
 	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
 		MenuInflater inflater = mode.getMenuInflater();
 		inflater.inflate(R.menu.my_action_mode, menu);
 		return true;
 	}
 
-	@Override
 	public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
 		Log.e("item.getItemId()", item.getItemId() + "");
 		if (item.getItemId() == R.id.menu_cancel) {
@@ -53,12 +51,10 @@ public class MyArrayAdapter extends MultiChoiceArrayAdapter<String> {
 	}
 
 
-	@Override
 	public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
 		return false;
 	}
 
-	@Override
 	public void onDestroyActionMode(ActionMode mode) {
 
 	}
@@ -68,5 +64,26 @@ public class MyArrayAdapter extends MultiChoiceArrayAdapter<String> {
 		View view = super.getViewImpl(position, convertView, parent);
 		view.setBackgroundResource(R.drawable.custom_list_item_background);
 		return view;
+	}
+
+	@Override
+	public boolean onActionItemClicked(android.support.v7.view.ActionMode arg0,
+			MenuItem arg1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onCreateActionMode(android.support.v7.view.ActionMode arg0,
+			Menu arg1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onPrepareActionMode(android.support.v7.view.ActionMode arg0,
+			Menu arg1) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
