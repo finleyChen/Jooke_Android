@@ -1,11 +1,13 @@
 package com.jooketechnologies.adapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jooketechnologies.jooke.JookeApplication;
 import com.jooketechnologies.jooke.R;
+import com.jooketechnologies.network.ImageLoader;
+import com.jooketechnologies.style.FontHelper;
 import com.jooketechnologies.style.RoundedAvatarDrawable;
 
 
@@ -22,6 +27,7 @@ import com.jooketechnologies.style.RoundedAvatarDrawable;
 public class PlayListArtistAdapter extends BaseAdapter {
 	public int selected_position = -1;
 	private Activity activity;
+	public TextView songstext;
 	public ArrayList<Integer> selectedArtists = new ArrayList<Integer>();
 
 	public static abstract class Row {
@@ -102,14 +108,19 @@ public class PlayListArtistAdapter extends BaseAdapter {
 				view = (LinearLayout) inflater.inflate(
 						R.layout.item_playlist_artist, parent, false);
 			}
-
+			Typeface defaul=Typeface.createFromAsset(activity.getAssets(),
+                    "fonts/gillsans_light.ttf");
+			TextView songstext = (TextView) view.findViewById(R.id.songs);
+			songstext.setTypeface(defaul);
 			ArtistItem item = (ArtistItem) getItem(position);
 			TextView artistName = (TextView) view.findViewById(R.id.artistName);
+			artistName.setTypeface(defaul);
 			artistName.setTextColor(activity.getResources().getColor(R.color.jooke_orange));
 			artistName.setText(item.artistName);
 			
 			TextView numberOfSongs = (TextView) view
 					.findViewById(R.id.number_songs);
+			numberOfSongs.setTypeface(defaul);
 			numberOfSongs.setText(item.numberOfSongs + "");
 			ImageView imageView = (ImageView) view
 					.findViewById(R.id.list_image);
@@ -129,9 +140,11 @@ public class PlayListArtistAdapter extends BaseAdapter {
 				view = (LinearLayout) inflater.inflate(
 						R.layout.header_artist_first_letter, parent, false);
 			}
-
+			Typeface defaul=Typeface.createFromAsset(activity.getAssets(),
+                    "fonts/gillsans_light.ttf");
 			Section section = (Section) getItem(position);
 			TextView textView = (TextView) view.findViewById(R.id.textView1);
+			textView.setTypeface(defaul);
 			textView.setText(section.text);
 		}
 
