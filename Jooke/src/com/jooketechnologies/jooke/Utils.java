@@ -363,7 +363,7 @@ public class Utils {
 			Bitmap artwork = BitmapFactory.decodeStream(in);
 			return artwork;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return null;
 		}

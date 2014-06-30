@@ -40,7 +40,6 @@ import com.jooketechnologies.user.MySelf;
 		
 		private Context mContext;
 		public JookeApplication jookeApplication;
-		public MySelf mMe;
 		
 		private Button mAddListButton;
 		private Button mStartEventButton;
@@ -84,9 +83,9 @@ import com.jooketechnologies.user.MySelf;
 			
 			mContext = getActivity();
 			jookeApplication = (JookeApplication) getActivity().getApplication();
-			mMe = new MySelf(SharedPreferenceUtils.getStoredJookeUserId(mContext),Utils.getIPAddress(true));
-			jookeApplication.mMe = mMe;
+			jookeApplication.mMe = new MySelf(Utils.getIPAddress(true),SharedPreferenceUtils.getUserId(mContext), SharedPreferenceUtils.getFullName(mContext));
 			
+	
 			final View rootView = inflater.inflate(
 					R.layout.fragment_createevent, container, false);
 			root = (View) rootView.findViewById(R.id.create_event_root);
@@ -102,8 +101,6 @@ import com.jooketechnologies.user.MySelf;
 					.findViewById(R.id.add_play_list_button);
 			mStartEventButton = (Button) rootView
 					.findViewById(R.id.start_event_button);
-			
-			
 			
 			
 			mLogoTextView.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),
@@ -172,7 +169,7 @@ import com.jooketechnologies.user.MySelf;
 
 			protected String doInBackground(Void... none) {
 				try {
-					String userId = SharedPreferenceUtils.getStoredJookeUserId(mContext);
+					String userId = SharedPreferenceUtils.getUserId(mContext);
 					
 					
 					mEventNameString      = mEventNameEditText.getText().toString();
@@ -201,7 +198,8 @@ import com.jooketechnologies.user.MySelf;
 					
 					Toast.makeText(getActivity(),
 							"Event Created!", Toast.LENGTH_LONG).show();
-					SharedPreferenceUtils.storeEventStatus(mContext, event_id,
+					
+					SharedPreferenceUtils.storeEventStatus(mContext, event_id, SharedPreferenceUtils.getUserId(mContext),SharedPreferenceUtils.getFullName(mContext),
 							mEventNameEditText.getText().toString(), true,isAllowVoting, isAllowAddSongs);
 				    Intent inEventMainIntent = new Intent(getActivity(),InEventMainActivity.class);
 				    inEventMainIntent.putExtra(Constants.KEY_EVENT_NAME, mEventNameEditText.getText().toString());
@@ -213,11 +211,11 @@ import com.jooketechnologies.user.MySelf;
 				    
 					
 					Event newEvent = new Event(mEventNameString, mHostIdString, 
-							SharedPreferenceUtils.getStoredJookeFullName(mContext),SharedPreferenceUtils.getUserProfileImgUrl(mContext) , 
+							SharedPreferenceUtils.getHostFullname(mContext),SharedPreferenceUtils.getUserProfileImgUrl(mContext) , 
 							event_id, mEventModeString, mAllowAddSongsString);
 					
-					mMe.isHost = true;
-					mMe.setEvent(newEvent);
+					jookeApplication.mMe.isHost = true;
+					jookeApplication.mMe.setEvent(newEvent);
 					
 					
 				    startActivity(inEventMainIntent);

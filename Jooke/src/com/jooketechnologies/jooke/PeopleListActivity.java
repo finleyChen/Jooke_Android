@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.jooketechnologies.adapter.PeopleListAdapter;
-import com.jooketechnologies.user.User;
 
 public class PeopleListActivity extends ListActivity  {
 	

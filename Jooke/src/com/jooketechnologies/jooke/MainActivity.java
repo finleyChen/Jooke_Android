@@ -100,7 +100,7 @@ public class MainActivity extends CustomActivity implements LocationListener {
 				List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
 				jookeApplication.currentZipCode = addresses.get(0).getPostalCode();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
 		}
@@ -124,25 +124,21 @@ public class MainActivity extends CustomActivity implements LocationListener {
 
 	@Override
 	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
 
 	}
 }

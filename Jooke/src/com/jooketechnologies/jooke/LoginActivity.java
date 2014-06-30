@@ -103,7 +103,7 @@ public class LoginActivity extends Activity {
 							}
 							
 							
-							new loginAsyncTask(email, password,Constants.SIGNUP_TYPE_NORMAL,null).execute();
+							new loginAsyncTask(email, password,Constants.SIGNUP_TYPE_NORMAL,null,mContext).execute();
 							return true;
 						}
 						return false;
@@ -198,7 +198,7 @@ public class LoginActivity extends Activity {
 					"My profile id = " + profile.getId() + ","
 							+ profile.getName() + "," + profile.getEmail() + "");
 	
-			new loginAsyncTask(null, null, Constants.SIGNUP_TYPE_FACEBOOK,profile.getId()).execute();
+			new loginAsyncTask(null, null, Constants.SIGNUP_TYPE_FACEBOOK,profile.getId(),mContext).execute();
 		}
 	};
 	private OnLoginListener mOnLoginListener = new OnLoginListener() {
@@ -260,7 +260,7 @@ public class LoginActivity extends Activity {
 				long userID = accessToken.getUserId();
 				User user = twitter.showUser(userID);
 				String username = user.getName();
-				new loginAsyncTask(null, null, Constants.SIGNUP_TYPE_TWITTER,String.valueOf(userID)).execute();
+				new loginAsyncTask(null, null, Constants.SIGNUP_TYPE_TWITTER,String.valueOf(userID),mContext).execute();
 				Log.e("twitter",
 						username + "," + user.getId() + ","
 								+ user.getProfileImageURL());
@@ -325,16 +325,18 @@ public class LoginActivity extends Activity {
 		public String password;
 		public int signin_type;
 		public String thirdparty_id;
+		public Context context;
 		
-		public loginAsyncTask(String email, String password, int signin_type, String thirdparty_id){
+		public loginAsyncTask(String email, String password, int signin_type, String thirdparty_id, Context context){
 			this.email = email;
 			this.password = password;
 			this.signin_type = signin_type;
 			this.thirdparty_id = thirdparty_id;
+			this.context = context;
 		}
 		protected String doInBackground(Void... none) {
 			
-			return ServerUtilities.logIn(email,
+			return ServerUtilities.logIn(context,email,
 					password, signin_type, thirdparty_id);
 		}
 		protected void onPostExecute(String uid){

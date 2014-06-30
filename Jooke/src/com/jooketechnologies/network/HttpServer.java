@@ -36,7 +36,7 @@ public class HttpServer
      try {
 		localJSONObject2.put("port", this.wsPort);
 	} catch (JSONException e) {
-		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
 	}
 

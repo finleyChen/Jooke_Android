@@ -45,13 +45,13 @@ public class SharedPreferenceUtils {
 		prefsEditor.commit();
 	}
 
-	public static boolean getStoredAddSongSettings(Context mContext) {
+	public static boolean getAddSongSetting(Context mContext) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
 				"JookeUserInfo", Context.MODE_PRIVATE);
 		return mPrefs.getBoolean("allowAddSongs", false);
 	}
 
-	public static boolean getStoredAllowVoting(Context mContext) {
+	public static boolean getAllowVoting(Context mContext) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
 				"JookeUserInfo", Context.MODE_PRIVATE);
 		return mPrefs.getBoolean("allowVoting", false);
@@ -110,6 +110,14 @@ public class SharedPreferenceUtils {
 		prefsEditor.putString("profileImgUrl", imgUrl);
 		prefsEditor.commit();
 	}
+	public static void storeHostId(Context mContext, String hostId) {
+		SharedPreferences mPrefs = mContext.getSharedPreferences(
+				"JookeUserInfo", Context.MODE_PRIVATE);
+
+		Editor prefsEditor = mPrefs.edit();
+		prefsEditor.putString("hostId", hostId);
+		prefsEditor.commit();
+	}
 	public static void storeEventId(Context mContext, String eventId) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
 				"JookeUserInfo", Context.MODE_PRIVATE);
@@ -118,7 +126,15 @@ public class SharedPreferenceUtils {
 		prefsEditor.putString("eventId", eventId);
 		prefsEditor.commit();
 	}
+	public static void storeHostFullname(Context mContext, String hostFullname) {
+		SharedPreferences mPrefs = mContext.getSharedPreferences(
+				"JookeUserInfo", Context.MODE_PRIVATE);
 
+		Editor prefsEditor = mPrefs.edit();
+		prefsEditor.putString("hostFullname", hostFullname);
+		prefsEditor.commit();
+	}
+	
 	// Store Event Name
 	public static void storeEventName(Context mContext, String eventName) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
@@ -128,13 +144,34 @@ public class SharedPreferenceUtils {
 		prefsEditor.putString("eventName", eventName);
 		prefsEditor.commit();
 	}
+	public static String getHostId(Context mContext) {
+		SharedPreferences mPrefs = mContext.getSharedPreferences(
+				"JookeUserInfo", Context.MODE_PRIVATE);
 
+		return mPrefs.getString("hostId", null);
+	}
+	public static String getHostFullname(Context mContext) {
+		SharedPreferences mPrefs = mContext.getSharedPreferences(
+				"JookeUserInfo", Context.MODE_PRIVATE);
+
+		return mPrefs.getString("hostFullname", null);
+	}
+	
+	
+	public static String getHostIp(Context mContext) {
+		SharedPreferences mPrefs = mContext.getSharedPreferences(
+				"JookeUserInfo", Context.MODE_PRIVATE);
+
+		return mPrefs.getString("hostIp", null);
+	}
+	
 	public static String getEventName(Context mContext) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
 				"JookeUserInfo", Context.MODE_PRIVATE);
 
 		return mPrefs.getString("eventName", null);
 	}
+	
 	public static String getUserProfileImgUrl(Context mContext){
 		SharedPreferences mPrefs = mContext.getSharedPreferences("JookeUserInfo", Context.MODE_PRIVATE);
 		return mPrefs.getString("profileImgUrl", null);
@@ -154,6 +191,12 @@ public class SharedPreferenceUtils {
 				"JookeUserInfo", Context.MODE_PRIVATE);
 
 		return mPrefs.getBoolean("isHost", false);
+	}
+	public static String getEventId(Context mContext) {
+		SharedPreferences mPrefs = mContext.getSharedPreferences(
+				"JookeUserInfo", Context.MODE_PRIVATE);
+
+		return mPrefs.getString("eventId", null);
 	}
 
 	// //Store is In Event
@@ -179,15 +222,17 @@ public class SharedPreferenceUtils {
 	// before call this function, the event status will be checked to make sure
 	// you are not in an event.
 	public static void storeEventStatus(Context mContext, String eventId,
-			String eventName, boolean isHost, boolean event_mode,
-			boolean allow_add) {
+			String hostId,String hostFullname,String eventName, 
+			boolean isHost, boolean event_mode,boolean allow_add) {
 		storeEventId(mContext, eventId);
+		storeHostId(mContext,hostId);
+		storeHostFullname(mContext,hostFullname);
 		storeEventName(mContext, eventName);
 		storeEventRole(mContext, isHost);
 		storeAddSongSettings(mContext, allow_add);
 		storeEventMode(mContext, event_mode);
 	}
-
+	
 	// If you leave an event, this function will be called.
 	public static void clearEventStatus(Context mContext) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
@@ -201,21 +246,14 @@ public class SharedPreferenceUtils {
 		prefsEditor.commit();
 	}
 
-	public static String getStoredEventId(Context mContext) {
-		SharedPreferences mPrefs = mContext.getSharedPreferences(
-				"JookeUserInfo", Context.MODE_PRIVATE);
-
-		return mPrefs.getString("eventId", null);
-	}
-
-	public static String getStoredJookeUserId(Context mContext) {
+	public static String getUserId(Context mContext) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
 				"JookeUserInfo", Context.MODE_PRIVATE);
 
 		return mPrefs.getString("uId", null);
 	}
 
-	public static String getStoredJookeFullName(Context mContext) {
+	public static String getFullName(Context mContext) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(
 				"JookeUserInfo", Context.MODE_PRIVATE);
 
@@ -230,12 +268,7 @@ public class SharedPreferenceUtils {
 		prefsEditor.commit();
 	}
 
-	public String getStoredHostIp(Context mContext) {
-		SharedPreferences mPrefs = mContext.getSharedPreferences(
-				"JookeUserInfo", Context.MODE_PRIVATE);
 
-		return mPrefs.getString("hostIp", null);
-	}
 	
 	public static void storeThirdPartyId(Context mContext, String thirdPartyId) {
 		SharedPreferences mPrefs = mContext.getSharedPreferences(

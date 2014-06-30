@@ -135,7 +135,7 @@ public class ServerUtilities {
 					userProfileImgUrl,facebookLink, twitterLink, instagramLink);
 			return newUser;
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -158,7 +158,7 @@ public class ServerUtilities {
 			Log.e("event_id",event_id);
 			Log.e("user_id",user_id);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return success;
@@ -226,7 +226,7 @@ public class ServerUtilities {
 				user_id = jsonObject.getString("userid");
 				return user_id;
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 				return null;
 			}
@@ -234,7 +234,7 @@ public class ServerUtilities {
 		}
 	}
 
-	public static String logIn(String email, String password, int signup_type,
+	public static String logIn(Context context, String email, String password, int signup_type,
 			String thirdparty_id) {
 		String serverUrl = Constants.CHAT_SERVER_URL
 				+ Constants.LOGIN_ACTION_NAME;
@@ -253,6 +253,11 @@ public class ServerUtilities {
 				String success = jsonObject.getString("success");
 				Log.e("login success",success);
 				if(success.equals("true")){
+					//TO ADD.
+					String fullname = jsonObject.getString(Constants.KEY_FULL_NAME);
+					String profile_img = jsonObject.getString(Constants.KEY_PROFILE_IMG);
+					SharedPreferenceUtils.storeFullName(context, fullname);
+					SharedPreferenceUtils.storeProfileImageUri(context,Uri.parse(profile_img));
 					return jsonObject.getString("userid");
 				}
 			}
@@ -261,7 +266,7 @@ public class ServerUtilities {
 			}
 			
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			
 			Log.e("JSONException", "exception"+e.getMessage());
 			e.printStackTrace();
 		}
@@ -294,7 +299,7 @@ public class ServerUtilities {
 				Event newEvent = new Event(eventName, hostId, hostName, hostProfileImgUrl, eventId, eventMode, allowAddSongs);
 				eventList.add(newEvent);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 			
@@ -311,15 +316,21 @@ public class ServerUtilities {
 		params.put("event_id", event_id);
 		
 		Log.e("event_id",event_id);
+		Log.e("host_id",host_id);
 		JSONObject jsonObject = post(serverUrl, Constants.GET_HOST_IP_ACTION_CODE, params);
 		
 		try {
 			String host_ip = jsonObject.getString(Constants.KEY_HOST_IP);
-			Log.e("host_id",host_id);
+			if(host_ip!=null){
+				Log.e("host_ip",host_ip);
+			}
+			else{
+				Log.e("host_ip","null");
+			}
 			return host_ip;
 			
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -344,7 +355,7 @@ public class ServerUtilities {
 			return getEventListsFromJsonArray(jsonArray);
 			
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -403,7 +414,6 @@ public class ServerUtilities {
 			}
 			
 		} catch (JSONException e) {
-			// TODO No nearby events right now. Create one!
 			e.printStackTrace();
 		}
 		return null;
@@ -456,7 +466,7 @@ public class ServerUtilities {
 				return jsonObject;
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;

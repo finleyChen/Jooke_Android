@@ -68,7 +68,7 @@ public class ServerService extends Service {
 						updateJsonObject.put(Constants.KEY_ADD_PEOPLE, addPeopleJsonObject);
 						Log.e("broadcast sent", "add people");
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
@@ -78,7 +78,7 @@ public class ServerService extends Service {
 						removePeopleJsonObject.put(Constants.KEY_USER_ID, intent.getStringExtra(Constants.KEY_USER_ID));
 						updateJsonObject.put(Constants.KEY_REMOVE_PEOPLE, removePeopleJsonObject);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
@@ -90,7 +90,7 @@ public class ServerService extends Service {
 						updateVotesJsonObject.put(Constants.KEY_JOOKE_ACTIONS, Constants.JOOKE_ACTIONS_CODE_ADD);
 						updateJsonObject.put(Constants.KEY_JOOKE, updateVotesJsonObject);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
@@ -101,7 +101,7 @@ public class ServerService extends Service {
 						updateVotesJsonObject.put(Constants.KEY_JOOKE_ACTIONS, Constants.JOOKE_ACTIONS_CODE_NORMAL);
 						updateJsonObject.put(Constants.KEY_JOOKE, updateVotesJsonObject);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
@@ -116,7 +116,7 @@ public class ServerService extends Service {
 						updatePlaylistJsonObject.put(Constants.KEY_SONG_DURATION, intent.getStringExtra(Constants.KEY_SONG_DURATION));
 						updateJsonObject.put(Constants.KEY_UPDATE_PLAYLIST, updatePlaylistJsonObject);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}

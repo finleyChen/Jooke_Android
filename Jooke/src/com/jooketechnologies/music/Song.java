@@ -1,10 +1,15 @@
 package com.jooketechnologies.music;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Song implements Comparable<Song>{
+public class Song implements Comparable<Song>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5725978179324200579L;
 	public String album;
 	public String artist;
 	public String title;
@@ -32,7 +37,7 @@ public class Song implements Comparable<Song>{
 			}
 			return hashtext;
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -52,7 +57,6 @@ public class Song implements Comparable<Song>{
 	}
 	@Override
 	public int compareTo(Song song) {
-		// TODO Auto-generated method stub
 		return vote.compareTo(song.vote);
 	}
 

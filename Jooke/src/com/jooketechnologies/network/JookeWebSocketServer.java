@@ -85,36 +85,51 @@ public class JookeWebSocketServer extends WebSocketServer {
 				User newUser = ServerUtilities.getProfile(userId, userIp);
 				// ADD to the user list and broadcast to everyone.
 				if (jookeApplication.mMe.addPublic(newUser)) {
-					Intent addUserIntent = new Intent(
-							Constants.KEY_BROCAST_INTENT);
-					addUserIntent.setAction(Constants.KEY_ADD_PEOPLE);
-					addUserIntent.putExtra(Constants.KEY_USER_ID, userId);
-					addUserIntent.putExtra(Constants.KEY_FULL_NAME,
-							newUser.userName);
-					addUserIntent.putExtra(Constants.KEY_PROFILE_IMG,
-							newUser.userProfileImgUrl);
-					addUserIntent.putExtra(Constants.KEY_INSTAGRAM_LINK,
-							newUser.instagramUrl);
-					addUserIntent.putExtra(Constants.KEY_TWITTER_LINK,
-							newUser.twitterUrl);
-					addUserIntent.putExtra(Constants.KEY_FACEBOOK_LINK,
-							newUser.facebookUrl);
-					context.sendBroadcast(addUserIntent);
-					
+					// For unicast. 
+					// Send the user list back to the user. (the whole list)
+					// For broadcast. 
 					JSONObject addPeopleJsonObject = new JSONObject();
 					try {
 						addPeopleJsonObject.put(Constants.KEY_USER_ID, userId);
+						addPeopleJsonObject.put(Constants.KEY_USER_IP, userIp);
 						addPeopleJsonObject.put(Constants.KEY_FULL_NAME, newUser.userName);
-						addPeopleJsonObject.put(Constants.KEY_PROFILE_IMG, newUser.userProfileImgUrl);
-						addPeopleJsonObject.put(Constants.KEY_USER_ID, userId);
-						addPeopleJsonObject.put(Constants.KEY_INSTAGRAM_LINK, newUser.instagramUrl);
-						addPeopleJsonObject.put(Constants.KEY_FACEBOOK_LINK,newUser.facebookUrl);
-						addPeopleJsonObject.put(Constants.KEY_TWITTER_LINK,newUser.twitterUrl);
+						if(newUser.userProfileImgUrl==null){
+							addPeopleJsonObject.put(Constants.KEY_PROFILE_IMG, JSONObject.NULL);
+						}
+						else{
+							addPeopleJsonObject.put(Constants.KEY_PROFILE_IMG, newUser.userProfileImgUrl);
+						}
+						if(userId==null){
+							addPeopleJsonObject.put(Constants.KEY_USER_ID, JSONObject.NULL);
+						}
+						else{
+							addPeopleJsonObject.put(Constants.KEY_USER_ID, userId);
+						}
+						if(newUser.instagramUrl==null){
+							addPeopleJsonObject.put(Constants.KEY_INSTAGRAM_LINK, JSONObject.NULL);
+						}
+						else{
+							addPeopleJsonObject.put(Constants.KEY_INSTAGRAM_LINK, newUser.instagramUrl);
+						}
+						if(newUser.facebookUrl==null){
+							addPeopleJsonObject.put(Constants.KEY_FACEBOOK_LINK, JSONObject.NULL);
+						}
+						else{
+							addPeopleJsonObject.put(Constants.KEY_FACEBOOK_LINK, newUser.facebookUrl);
+						}
+						if(newUser.twitterUrl==null){
+							addPeopleJsonObject.put(Constants.KEY_TWITTER_LINK, JSONObject.NULL);
+						}
+						else{
+							addPeopleJsonObject.put(Constants.KEY_TWITTER_LINK, newUser.facebookUrl);
+						}
 						
 						updateJsonObject.put(Constants.KEY_ADD_PEOPLE, addPeopleJsonObject);
-						Log.e("broadcast sent", "add people");
+					
+						updateJsonObject.put(Constants.KEY_UPDATE_PLAYLIST, addPeopleJsonObject);
+						
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
@@ -193,10 +208,11 @@ public class JookeWebSocketServer extends WebSocketServer {
 				}
 
 			}
-
+			wsServer.sendToAll(updateJsonObject.toString());
+			Log.e("wsServer","send to all");
 		} catch (JSONException e) {
 			Log.e("userId userIp", e.toString());
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

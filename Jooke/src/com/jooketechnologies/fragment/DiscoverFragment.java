@@ -94,7 +94,7 @@ public class DiscoverFragment extends ListFragment {
 			try {
 				//CHECK
 				
-				String userId = SharedPreferenceUtils.getStoredJookeUserId(mContext);
+				String userId = SharedPreferenceUtils.getUserId(mContext);
 				Log.e("userId",userId);
 				if(jookeApplication.currentLocation==null){
 					Log.e("null","location is null");

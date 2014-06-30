@@ -16,13 +16,13 @@ public class User implements Comparable<User>{
 	
 	@Override
 	public int compareTo(User user) {
-		// TODO Auto-generated method stub
 		return userName.compareTo(user.userName);
 	}
 
-	public User(String userIp, String userId){
+	public User(String userIp, String userId, String userName){
 		this.userIp = userIp;
 		this.userId = userId;
+		this.userName = userName;
 	}
 	
 	

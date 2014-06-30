@@ -70,10 +70,8 @@ public class InEventMainActivity extends ListActivity{
 
 		protected String doInBackground(Void... none) {
 			try {
-				String host_id = SharedPreferenceUtils
-						.getStoredJookeUserId(mContext);
-				String event_id = SharedPreferenceUtils
-						.getStoredEventId(mContext);
+				String host_id = SharedPreferenceUtils.getHostId(mContext);
+				String event_id = SharedPreferenceUtils.getEventId(mContext);
 				return ServerUtilities.leaveEvent(host_id, event_id);
 
 			} catch (Exception e) {
@@ -103,10 +101,22 @@ public class InEventMainActivity extends ListActivity{
 		mContext = this;
 		jookeApplication = (JookeApplication)getApplication();
 		hostId=getIntent().getStringExtra(Constants.KEY_HOST_ID);
-		eventId=getIntent().getStringExtra(Constants.KEY_EVENT_ID);
-		allowVoting=getIntent().getBooleanExtra(Constants.KEY_EVENT_MODE, false);
-		allowAddSongs=getIntent().getBooleanExtra(Constants.KEY_ALLOW_ADDSONGS, false);
-		eventName = getIntent().getStringExtra(Constants.KEY_EVENT_NAME).toUpperCase();
+		// as a user who is already logged in. 
+		// you need to get info from the SharedPreference. 
+		if(hostId == null){
+			hostId = SharedPreferenceUtils.getHostId(mContext);
+			eventId = SharedPreferenceUtils.getEventId(mContext);
+			allowVoting = SharedPreferenceUtils.getAllowVoting(mContext);
+			allowAddSongs = SharedPreferenceUtils.getAddSongSetting(mContext);
+			eventName = SharedPreferenceUtils.getEventName(mContext).toUpperCase();;
+		}
+		else{
+			eventId=getIntent().getStringExtra(Constants.KEY_EVENT_ID);
+			allowVoting=getIntent().getBooleanExtra(Constants.KEY_EVENT_MODE, false);
+			allowAddSongs=getIntent().getBooleanExtra(Constants.KEY_ALLOW_ADDSONGS, false);
+			eventName = getIntent().getStringExtra(Constants.KEY_EVENT_NAME).toUpperCase();
+		}
+		
 		//If you are host
 		if(SharedPreferenceUtils.getEventRole(mContext)){
 			hostIp=Utils.getIPAddress(true);

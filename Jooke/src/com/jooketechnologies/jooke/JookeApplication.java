@@ -12,6 +12,7 @@ import android.content.Context;
 import android.location.Location;
 import android.util.Log;
 
+import com.jooketechnologies.event.Event;
 import com.jooketechnologies.music.Song;
 import com.jooketechnologies.user.MySelf;
 import com.jooketechnologies.user.User;
@@ -69,16 +70,15 @@ public class JookeApplication extends Application {
 					try {
 						valueObject.put(Constants.KEY_USER_ID,
 								SharedPreferenceUtils
-										.getStoredJookeUserId(context));
+										.getUserId(context));
 						valueObject.put(Constants.KEY_USER_IP,
 								Utils.getIPAddress(true));
 						joinJsonObject.put(Constants.KEY_JOIN, valueObject);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					Log.e("onOpen",SharedPreferenceUtils
-							.getStoredJookeUserId(context)+","+Utils.getIPAddress(true));
+							.getUserId(context)+","+Utils.getIPAddress(true));
 					mConnection.sendTextMessage(joinJsonObject.toString());
 				}
 
@@ -93,8 +93,10 @@ public class JookeApplication extends Application {
 								.getJSONObject(Constants.KEY_ADD_PEOPLE) != null) {
 							JSONObject addUserJsonObject = broadcastJsonObject
 									.getJSONObject(Constants.KEY_ADD_PEOPLE);
+							Log.e("print json string",addUserJsonObject.toString());
 							User newUser = new User(
-									null,
+									addUserJsonObject
+									.getString(Constants.KEY_USER_IP),
 									addUserJsonObject
 											.getString(Constants.KEY_USER_ID),
 									addUserJsonObject
@@ -107,6 +109,8 @@ public class JookeApplication extends Application {
 											.getString(Constants.KEY_TWITTER_LINK),
 									addUserJsonObject
 											.getString(Constants.KEY_INSTAGRAM_LINK));
+							jookeApplication.mMe.addPublic(newUser);
+							Log.e("new user broadcasted","new user broadcasted");
 
 						} else if (broadcastJsonObject
 								.getJSONObject(Constants.KEY_REMOVE_PEOPLE) != null) {
@@ -140,12 +144,12 @@ public class JookeApplication extends Application {
 									
 									
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+									
 									e.printStackTrace();
 								}
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 

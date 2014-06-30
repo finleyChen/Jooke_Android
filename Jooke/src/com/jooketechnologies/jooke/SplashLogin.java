@@ -57,11 +57,11 @@ public class SplashLogin extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String eventId = SharedPreferenceUtils.getStoredEventId(this);
+		String eventId = SharedPreferenceUtils.getEventId(this);
 		String eventName = SharedPreferenceUtils.getEventName(this);
 		boolean isHost = SharedPreferenceUtils.getEventRole(this);
-		boolean allowAddSongs = SharedPreferenceUtils.getStoredAddSongSettings(this);
-		boolean allowVoting = SharedPreferenceUtils.getStoredAllowVoting(this);
+		boolean allowAddSongs = SharedPreferenceUtils.getAddSongSetting(this);
+		boolean allowVoting = SharedPreferenceUtils.getAllowVoting(this);
 		Log.e("before execute","before execur");
 		new getIpTask().execute();
 		// if the user enters the activity with a ongoing event. 
@@ -83,7 +83,7 @@ public class SplashLogin extends FragmentActivity {
 			finish();
 			return;
 		}
-		String userId = SharedPreferenceUtils.getStoredJookeUserId(this);
+		String userId = SharedPreferenceUtils.getUserId(this);
 		if(userId!=null){
 			Log.e("userId",userId);
 			Intent mainIntent = new Intent(this, MainActivity.class);

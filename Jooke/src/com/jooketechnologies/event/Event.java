@@ -50,7 +50,9 @@ public class Event {
 		mUserList = new ArrayList<User>();
 		mUserList.add(myself);
 	}
-	
+	public void initUserList(){
+		mUserList = new ArrayList<User>();
+	}
 	public void initSongList(ArrayList<Song> songList){
 		mSongList = new ArrayList<Song>();
 		mSongList.addAll(songList);
@@ -75,7 +77,7 @@ public class Event {
 				User newUser = new User(userIp, userId,fullname,userProfileImgUrl,facebookUrl, twitterUrl, instagramUrl);
 				mUserList.add(newUser);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 			
@@ -99,7 +101,7 @@ public class Event {
 				Song newSong = new Song(album, artist,title,duration,null);
 				mSongList.add(newSong);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 			
@@ -127,11 +129,11 @@ public class Event {
 				getUserListFromJsonArray(userJsonArray);
 				getSongListFromJsonArray(songsJsonArray);
 			} catch (org.json.JSONException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

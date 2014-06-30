@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.util.Log;
 
 import com.jooketechnologies.event.Event;
 import com.jooketechnologies.music.Song;
@@ -14,8 +15,8 @@ public class MySelf extends User {
 	public Event event;
 	MediaPlayer mPlayer = null;
 
-	public MySelf(String userIp, String userId) {
-		super(userIp, userId);
+	public MySelf(String userIp, String userId, String userName) {
+		super(userIp, userId, userName);
 	}
 
 	// Public actions.
@@ -106,10 +107,9 @@ public class MySelf extends User {
 			mPlayer.setDataSource(songToPlay.filePath);
 			mPlayer.prepare();
 		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		mPlayer.start();
@@ -122,7 +122,14 @@ public class MySelf extends User {
 	}
 
 	public boolean addPublic(User newUser) {
+		// TODO: check duplicates. 
 		Event.mUserList.add(newUser);
+		for (User user: Event.mUserList){
+			Log.e("user ip", user.userIp);
+			//Log.e("user name",user.userName);
+			Log.e("user id",user.userId);
+		}
+		Log.e("how many users:", Event.mUserList.size()+"");
 		return true;
 	}
 
@@ -133,6 +140,11 @@ public class MySelf extends User {
 	// Shared Operations.
 	public void setEvent(Event event) {
 		this.event = event;
-		this.event.initUserList(this);
+		if(isHost){
+			this.event.initUserList(this);
+		}
+		else{
+			this.event.initUserList();
+		}
 	}
 }

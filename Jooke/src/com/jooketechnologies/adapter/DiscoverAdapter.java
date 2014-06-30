@@ -16,11 +16,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jooketechnologies.event.Event;
 import com.jooketechnologies.jooke.Constants;
 import com.jooketechnologies.jooke.InEventMainActivity;
+import com.jooketechnologies.jooke.JookeApplication;
 import com.jooketechnologies.jooke.R;
 import com.jooketechnologies.jooke.SharedPreferenceUtils;
+import com.jooketechnologies.jooke.Utils;
 import com.jooketechnologies.network.ImageLoader;
+import com.jooketechnologies.user.MySelf;
 
 public class DiscoverAdapter extends BaseAdapter {
 
@@ -28,6 +32,7 @@ public class DiscoverAdapter extends BaseAdapter {
 	private ArrayList<HashMap<String, String>> data;
 	private static LayoutInflater inflater = null;
 	public ImageLoader imageLoader;
+	public JookeApplication jookeApplication;
 	
 	public DiscoverAdapter(Activity a, ArrayList<HashMap<String, String>> d) {
 		activity = a;
@@ -35,6 +40,8 @@ public class DiscoverAdapter extends BaseAdapter {
 		inflater = (LayoutInflater) activity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		imageLoader = new ImageLoader(activity.getApplicationContext());
+		jookeApplication = (JookeApplication) activity.getApplication();
+		jookeApplication.mMe = new MySelf(Utils.getIPAddress(true),SharedPreferenceUtils.getUserId(a),SharedPreferenceUtils.getFullName(a));
 	}
 
 	public int getCount() {
@@ -86,12 +93,16 @@ public class DiscoverAdapter extends BaseAdapter {
 				    inEventMainIntent.putExtra(Constants.KEY_HOST_ID, holder.host_id);
 				    inEventMainIntent.putExtra(Constants.KEY_IS_HOST,false);
 				    
-					
+				 
+				    Event newEvent = new Event(holder.eventname.getText().toString(), holder.host_id, 
+				    		holder.hostname.getText().toString(),holder.host_image_url , 
+							holder.event_id, String.valueOf(holder.event_mode), String.valueOf(holder.allow_addsongs));
+				    SharedPreferenceUtils.storeEventStatus(activity, holder.event_id,holder.host_id,holder.hostname.getText().toString(),
+				    		
+				    		holder.eventname.getText().toString(), false,holder.event_mode, holder.allow_addsongs);
+					jookeApplication.mMe.isHost = false;
+					jookeApplication.mMe.setEvent(newEvent);
 				    activity.startActivity(inEventMainIntent);
-				    
-				    
-					SharedPreferenceUtils.storeEventStatus(activity,holder.event_id ,
-							holder.eventname.getText().toString(), false,holder.event_mode, holder.allow_addsongs);
 					activity.finish();
 	            }
 	        });
@@ -113,7 +124,7 @@ public class DiscoverAdapter extends BaseAdapter {
 		holder.event_mode = Boolean.valueOf(event.get(Constants.KEY_EVENT_MODE));
 		holder.allow_addsongs = Boolean.valueOf(event.get(Constants.KEY_ALLOW_ADDSONGS));
 		holder.host_id = event.get(Constants.KEY_HOST_ID);
-				
+		holder.host_image_url = event.get(Constants.KEY_HOME_SUBJECT1_PROFILE_IMG);	
 		imageLoader.DisplayImage(event.get(Constants.KEY_HOME_SUBJECT1_PROFILE_IMG),holder.hostimage,true);
 		
 		return vi;
@@ -124,7 +135,9 @@ public class DiscoverAdapter extends BaseAdapter {
 
 		TextView eventname;
 		TextView hostname;
+		String hostFullname;
 		ImageView hostimage;
+		String host_image_url;
 		Button event_info;
 		Button join_event;
 		String event_id;
