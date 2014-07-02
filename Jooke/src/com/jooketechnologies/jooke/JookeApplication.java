@@ -48,6 +48,7 @@ public class JookeApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		connectRabbitMQ();
 	}
 	public void connectRabbitMQ(){
 		if (mUnicastConsumer == null
