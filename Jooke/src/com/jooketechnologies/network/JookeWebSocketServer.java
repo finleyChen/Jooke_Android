@@ -66,7 +66,7 @@ public class JookeWebSocketServer extends WebSocketServer {
 	// Add songs from public local phones.
 	// These three actions will be broadcasted to all the users as well. 
 	// NOT TESTED. 
-	public void onMessage(WebSocket paramWebSocket, String incomingMessage) {
+	public void onMessage(WebSocket webSocket, String incomingMessage) {
 		Log.e("onMessage", "onMessage" + incomingMessage);
 		try {
 			JSONObject incomingJsonObject = new JSONObject(incomingMessage);
@@ -87,6 +87,12 @@ public class JookeWebSocketServer extends WebSocketServer {
 				if (jookeApplication.mMe.addPublic(newUser)) {
 					// For unicast. 
 					// Send the user list back to the user. (the whole list)
+					JSONObject unicastJsonObject = new JSONObject();
+//					
+//					
+//					unicastJsonObject.put("UNICAST", "11");
+//					
+//					webSocket.send(arg0);
 					// For broadcast. 
 					JSONObject addPeopleJsonObject = new JSONObject();
 					try {

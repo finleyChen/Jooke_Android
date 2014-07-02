@@ -12,8 +12,8 @@ import android.content.Context;
 import android.location.Location;
 import android.util.Log;
 
-import com.jooketechnologies.event.Event;
 import com.jooketechnologies.music.Song;
+import com.jooketechnologies.network.MessageConsumer;
 import com.jooketechnologies.user.MySelf;
 import com.jooketechnologies.user.User;
 
@@ -22,10 +22,22 @@ import de.tavendo.autobahn.WebSocketException;
 import de.tavendo.autobahn.WebSocketHandler;
 
 public class JookeApplication extends Application {
-
+	// @Qiuhan 
+	
+	// Rabbitmq server ip
+	private static final String RABBITMQ_SERVER = "54.191.47.38";
+	
+	// Exchange name: we are going to use only one exchanger
+	private static final String EXCHANGE_NAME = "Jooke Notification";
+	
+	// Hard-coded user id: this will be used as the routing key which identify the queue 
+	private static final String userId = "2";
+	
+	// @End
+	
 	ArrayList<HashMap<String, String>> arraylist;
 	public boolean isInEvent;
-
+	private MessageConsumer mUnicastConsumer;
 	public MySelf mMe;
 
 	public static JookeApplication jookeApplication = null;
@@ -37,7 +49,32 @@ public class JookeApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 	}
+	public void connectRabbitMQ(){
+		if (mUnicastConsumer == null
+				|| (mUnicastConsumer != null && !mUnicastConsumer.isConnected())) {
+			
+			// The only change in the application when new a new instance of the consumer: add one more parameter--userId
+			mUnicastConsumer = new MessageConsumer(RABBITMQ_SERVER,
+					EXCHANGE_NAME, "direct", userId);
 
+			Log.e("unicast is connected", "is connected");
+			mUnicastConsumer.connectToRabbitMQ();
+			mUnicastConsumer
+					.setOnReceiveMessageHandler(new MessageConsumer.OnReceiveMessageHandler() {
+
+						public void onReceiveMessage(byte[] message) {
+							
+							// Received message from rabbitmq
+							String msg = new String(message);
+							Log.d("Jooke", "message: " + msg);
+						}
+				
+					});
+
+		}
+
+		
+	}
 	public void startConnection(final String hostIpAddress,
 			final Context context) {
 		jookeApplication = this;
