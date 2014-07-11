@@ -144,6 +144,13 @@
         <item name="android:background">@color/jooke_blue</item>
         <item name="android:titleTextStyle">@style/DarkActionBarTitleTextStyle</item>
     </style>
+        <style name="whiteActionBar" parent="android:Widget.Holo.ActionBar">
+        <item name="android:displayOptions">showHome|useLogo</item>
+        <item name="android:background">@color/inactive_white</item>
+         <item name="android:actionMenuTextAppearance">@style/MyActionBar.MenuTextStyle</item>
+         <item name="android:actionModeBackground">@color/jooke_orange</item>
+        
+    </style>
 
     <style name="JookeBlueActionBarTabStyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_bar_background</item>
@@ -216,13 +223,25 @@
     </style>
 
     <style name="PublicProfileTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/JookeBlueActionBar</item>
+        <item name="android:actionBarStyle">@style/whiteActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/bacl</item>
     </style>
 
     <style name="MusicSelectorTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/JookeBlueActionBar</item>
+        <item name="android:actionBarStyle">@style/whiteActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/bacl</item>
         <item name="multiChoiceAdapterStyle">@style/MultiChoiceAdapter</item>
+        <item name="android:actionMenuTextAppearance">@style/MyActionBar.MenuTextStyle</item>
+        <item name="android:actionMenuTextColor">@color/jooke_orange</item>
+        <item name="android:actionModeBackground">@color/jooke_orange</item>
     </style>
+    
+    <style name="MyActionBar.MenuTextStyle"
+    parent="android:style/TextAppearance.Holo.Widget.ActionBar.Menu">
+    <item name="android:textColor">@color/jooke_orange</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textSize">15dp</item>
+</style>
 
     <style name="MultiChoiceAdapter">
         <item name="itemClickInActionMode">selectItem</item>
